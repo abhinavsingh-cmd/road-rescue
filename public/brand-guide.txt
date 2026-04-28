@@ -1,0 +1,12 @@
+Road Rescue brand palette
+
+Primary: #dc2626
+Secondary: #0f172a
+Accent: #f59e0b
+Background: #fff7ed
+Surface: #ffffff
+
+Suggested tone:
+- Calm under pressure
+- Fast and trustworthy
+- Hyperlocal service dispatch

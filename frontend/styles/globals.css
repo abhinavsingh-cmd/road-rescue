@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;500;700&display=swap");
+
+:root {
+  color-scheme: dark;
+  --primary: #faff5d;
+  --accent-gold: #d4af37;
+  --accent-amber: #ffbf00;
+  --bg-dark: #050505;
+  --surface-graphite: #121212;
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg-dark);
+}
+
+/* World-Class Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  transition: background 0.3s;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+body {
+  @apply antialiased selection:bg-primary selection:text-black;
+  background: var(--bg-dark);
+  color: #fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto max-w-7xl px-6 sm:px-10;
+  }
+
+  /* Luxury Glassmorphism */
+  .glass-card {
+    @apply border border-white/[0.08] bg-white/[0.03] backdrop-blur-[40px];
+    box-shadow: 
+      0 30px 100px -20px rgba(0,0,0,0.8),
+      inset 0 1px 1px rgba(255,255,255,0.04);
+  }
+
+  .premium-panel {
+    @apply glass-card rounded-[48px];
+  }
+
+  /* Emotional Button Styling */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center overflow-hidden rounded-3xl bg-primary px-12 py-6 text-[10px] font-black uppercase tracking-[0.4em] text-black transition-all duration-500 hover:scale-[1.03] active:scale-[0.97] disabled:opacity-30;
+    box-shadow: 
+      0 20px 40px -10px rgba(250, 255, 93, 0.3),
+      0 0 0 1px rgba(250, 255, 93, 0.1);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-3xl border border-white/[0.12] bg-white/[0.04] px-12 py-6 text-[10px] font-black uppercase tracking-[0.4em] text-white transition-all duration-500 hover:bg-white/[0.08] hover:border-white/[0.24] active:scale-[0.97];
+  }
+
+  .input-field {
+    @apply w-full rounded-3xl border border-white/[0.08] bg-white/[0.03] px-8 py-6 text-sm text-white outline-none transition-all duration-500 placeholder:text-white/30 focus:border-primary/50 focus:bg-white/[0.05] focus:ring-[12px] focus:ring-primary;
+    --tw-ring-opacity: 0.2;
+  }
+
+  /* Human-Centered Typography */
+  .kicker {
+    @apply text-[10px] font-black uppercase tracking-[0.4em] text-primary;
+    text-shadow: 0 0 20px rgba(250, 255, 93, 0.4);
+  }
+
+  .nav-chip {
+    @apply rounded-full border border-white/[0.08] bg-white/[0.04] px-8 py-3 text-[10px] font-bold uppercase tracking-[0.2em] text-white/70 transition-all duration-500 hover:text-white hover:bg-white/[0.1];
+  }
+
+  .nav-chip-active {
+    @apply border-primary/20 bg-primary/10 text-primary !text-primary;
+    box-shadow: 0 10px 30px rgba(250, 255, 93, 0.15);
+  }
+}
+
+/* Ambient Background Lights */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  animation: pulse-light 10s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-light {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.12; }
+  100% { transform: scale(1.2) translate(5%, 5%); opacity: 0.24; }
+}
+
+/* Shimmer Loading for Premium Feel */
+.skeleton {
+  @apply relative overflow-hidden rounded-[32px] bg-white/[0.04];
+}
+.skeleton::after {
+  content: "";
+  @apply absolute inset-0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.text-gradient-gold {
+  @apply bg-gradient-to-br from-white via-white/90 to-accent-gold bg-clip-text text-transparent;
+}
